@@ -2,8 +2,6 @@ name         := "akka-http-slick"
 scalaVersion := "2.11.6"
 version := "1.0.0-SNAPSHOT"
 
-scalacOptions in ThisBuild ++= Seq("-encoding", "UTF-8", "-deprecation", "-unchecked")  
-
 libraryDependencies ++= {
   val akkaV       = "2.3.9"
   val akkaStreamV = "1.0-M5"
@@ -21,5 +19,32 @@ libraryDependencies ++= {
     "org.scalatest"      %% "scalatest"                         % scalaTestV % "test"
   )
 }
+
+scalacOptions ++= Seq(
+  //  "-Xprint:typer", // Turn this on if WartRemover acts up, to see full syntax tree
+  "-deprecation",
+  "-encoding", "UTF-8",       // yes, this is 2 args
+  "-feature",
+  "-unchecked",
+  "-Xfatal-warnings",       // Treat Warnings as Errors
+  "-Xlint",
+  "-Yno-adapted-args",
+  "-Ywarn-dead-code",        // N.B. doesn't work well with the ??? hole
+  "-Ywarn-numeric-widen",
+  "-Ywarn-value-discard",
+  "-Xfuture" // Would be nice to have but does not Play well
+)
+
+//Only care about main code. Running in tests will inevitably fail with all the ScalaTest matchers on Any
+wartremoverWarnings in (Compile, compile) ++= Seq(
+  Wart.Any,
+  Wart.Any2StringAdd,
+  Wart.EitherProjectionPartial,
+  Wart.OptionPartial,
+  Wart.Product,
+  Wart.Serializable,
+  Wart.ListOps,
+  Wart.Nothing
+)
 
 
