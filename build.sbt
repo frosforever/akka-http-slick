@@ -26,7 +26,7 @@ scalacOptions ++= Seq(
   "-encoding", "UTF-8",       // yes, this is 2 args
   "-feature",
   "-unchecked",
-  "-Xfatal-warnings",       // Treat Warnings as Errors
+//  "-Xfatal-warnings",       // Treat Warnings as Errors
   "-Xlint",
   "-Yno-adapted-args",
   "-Ywarn-dead-code",        // N.B. doesn't work well with the ??? hole
