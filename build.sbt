@@ -20,6 +20,8 @@ libraryDependencies ++= {
   )
 }
 
+Revolver.settings
+
 scalacOptions ++= Seq(
   //  "-Xprint:typer", // Turn this on if WartRemover acts up, to see full syntax tree
   "-deprecation",
