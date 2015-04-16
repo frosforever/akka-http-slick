@@ -11,7 +11,7 @@ class Persons(tag: Tag) extends Table[Person](tag, "PERSONS") {
 
   def age = column[Int]("AGE")
 
-  def * = (id.?, name, age) <>(Person.tupled, Person.unapply)
+  def * = (id, name, age) <> (Person.tupled, Person.unapply)
 }
 
 object Tables {
