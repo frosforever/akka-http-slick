@@ -1,11 +1,11 @@
 package web
 
 import akka.event.{NoLogging, LoggingAdapter}
-import akka.http.testkit.ScalatestRouteTest
+import akka.http.scaladsl.testkit.ScalatestRouteTest
 import com.typesafe.config.Config
 import org.scalatest.{Matchers, FlatSpec}
-import akka.http.model.StatusCodes._
-import akka.http.model.ContentTypes._
+import akka.http.scaladsl.model.StatusCodes._
+import akka.http.scaladsl.model.ContentTypes._
 
 class ServiceTest extends FlatSpec with Matchers with ScalatestRouteTest with Service {
   override def config: Config = testConfig

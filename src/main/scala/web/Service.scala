@@ -2,7 +2,7 @@ package web
 
 import akka.actor.ActorSystem
 import akka.event.LoggingAdapter
-import akka.http.server.Directives._
+import akka.http.scaladsl.server.Directives._
 import akka.stream.FlowMaterializer
 import com.typesafe.config.Config
 
